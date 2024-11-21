@@ -8,3 +8,8 @@ Gracefulシャットダウン
 ## [example016](cmd/example016)
 
 Unitテストにおける並列性の検証
+
+## [bgcli001](cmd/bgcli001)
+
+BigQueryのAPIはHTTPである。
+GCPクライアントのモック化。
