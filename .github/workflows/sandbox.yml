@@ -1,0 +1,27 @@
+name: sandbox
+on:
+  issue_comment:
+    types: [created]
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  issues: write # issueのコメント読む、issueへコメントするために必要
+
+jobs:
+  j1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event_name }}  // pull_request,push
+      - run: echo ${{ github.ref_name }} // main
+      - run: echo ${{ github.ref_type }} // tag,branch
+      - run: echo ${{ github.event.pull_request.number }} // pull_request pr number
+      - run: echo ${{ github.event.issue.pull_request }}
+      - run: echo ${{ github.event.comment.body }}
+      - run: cat ${{ github.event_path }}
+      - run: echo ${{ github.event }}
+      - run: echo '${{ toJSON(github) }}'
+      - run: echo '${{ toJSON(job) }}'
