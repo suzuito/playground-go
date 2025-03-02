@@ -1,4 +1,4 @@
-module github.com/suzuito/playground-go
+module github.com/suzuito/playground-go/go123
 
 go 1.23.0
 
